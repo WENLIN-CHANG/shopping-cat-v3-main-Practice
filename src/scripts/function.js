@@ -64,6 +64,18 @@ const functionControl = () => {
     },
 
 
+    // 防止亂輸入數字
+    validateQuantity: function(item) {
+      if(item.quantity < 1 || isNaN(item.quantity) || item.quantity == null) {
+        item.quantity = 1
+      }
+
+      item.quantity = Math.floor(item.quantity)
+
+      this.saveCart()
+    },
+
+
     
   }
 }

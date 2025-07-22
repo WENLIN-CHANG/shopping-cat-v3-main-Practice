@@ -82,6 +82,7 @@
                       <input
                         type="number"
                         x-model.number="item.quantity"
+                        @input="validateQuantity(item)"
                         min="1"
                         class="input input-bordered"
                       />
