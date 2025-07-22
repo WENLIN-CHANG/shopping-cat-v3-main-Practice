@@ -4,7 +4,7 @@ import catsData from '../data/cats.json';
 const functionControl = () => {
   return {
     // data
-    cart: [],
+    cart: JSON.parse(localStorage.getItem('shoppingCart')) || [],
     cats: catsData.cats,
 
 
@@ -28,6 +28,8 @@ const functionControl = () => {
         quantity: 1
        });
       }
+
+      this.saveCart()
     },
 
     totalPrice: function() {
@@ -44,14 +46,22 @@ const functionControl = () => {
       if(index != -1) {
         this.cart.splice(index, 1)
       }
+
+      this.saveCart()
     },
 
     clearCart: function() {
       if (confirm('確定要清空所有認養清單嗎？')) {
         this.cart = [];
       }
+
+      this.saveCart()
     },
 
+    // localStorage
+    saveCart: function() {
+      localStorage.setItem('shoppingCart', JSON.stringify(this.cart))
+    },
 
 
     
