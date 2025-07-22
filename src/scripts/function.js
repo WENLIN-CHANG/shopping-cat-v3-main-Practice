@@ -46,6 +46,12 @@ const functionControl = () => {
       }
     },
 
+    clearCart: function() {
+      if (confirm('確定要清空所有認養清單嗎？')) {
+        this.cart = [];
+      }
+    },
+
 
 
     
