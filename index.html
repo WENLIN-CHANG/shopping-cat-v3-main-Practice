@@ -166,58 +166,37 @@
               </thead>
               <tbody>
                 <template 
-                x-for="item in cart"
-                x-bind:key="item.id"
+                  x-for="item in cart"
+                  x-bind:key="item.id"
                 >
-                <!-- item start -->
-                <tr class="text-lg">
-                  
-                  <td>
-                    <input
-                      type="number"
-                      x-model.number="item.quantity"
-    
-                      min="1"
-                      class="input input-bordered"
-                    />
-                  </td>
-                  <td x-text="'$' + item.price"></td>
-                  <td x-text="'$' + (item.price * item.quantity).toFixed(2)"></td>
-                  <td>
-                    <button class="btn btn-xs btn-primary">
-                      <i class="fas fa-trash-alt"></i>
-                    </button>
-                  </td>
-                </tr>
-                <!-- item end -->
-
-                <!-- item start -->
-                <tr class="text-lg">
-                  <td>胖胖</td>
-                  <td>
-                    <input
-                      type="number"
-                      value="1"
-                      min="1"
-                      class="input input-bordered"
-                    />
-                  </td>
-                  <td>$8.5</td>
-                  <td>$8.5</td>
-                  <td>
-                    <button class="btn btn-xs btn-primary">
-                      <i class="fas fa-trash-alt"></i>
-                    </button>
-                  </td>
-                </tr>
-                <!-- item end -->
-              </template>
+                  <tr class="text-lg">
+                    <td x-text="item.name"></td>
+                    <td>
+                      <input
+                        type="number"
+                        x-model.number="item.quantity"
+                        min="1"
+                        class="input input-bordered"
+                      />
+                    </td>
+                    <td x-text="'$' + item.price"></td>
+                    <td x-text="'$' + (item.price * item.quantity).toFixed(2)"></td>
+                    <td>
+                      <button class="btn btn-xs btn-primary">
+                        <i class="fas fa-trash-alt"></i>
+                      </button>
+                    </td>
+                  </tr>
+                </template>
               </tbody>
               <tfoot class="text-lg bg-slate-100">
                 <tr>
                   <td colspan="2"></td>
                   <td>總價</td>
-                  <td class="font-bold">$28.50</td>
+                  <td 
+                  class="font-bold"
+                  x-text="'$' + totalPrice()"
+                  ></td>
                   <td></td>
                 </tr>
               </tfoot>

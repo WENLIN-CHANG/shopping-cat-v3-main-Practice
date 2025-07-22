@@ -10,7 +10,7 @@ const functionControl = () => {
 
     // methods
     addCart(catId) {
-      console.log('點擊了貓咪 ID:', catId)
+
       const cat = this.cats.find(c => c.id === catId);
       if (!cat) return;
 
@@ -28,8 +28,14 @@ const functionControl = () => {
         quantity: 1
        });
       }
+    },
 
-      console.log('購物車內容:', this.cart);
+    totalPrice() {
+      let total = 0;
+      for (let item of this.cart) {
+        total = total + (item.price * item.quantity);
+      }
+      return total.toFixed(2);
     },
 
 
