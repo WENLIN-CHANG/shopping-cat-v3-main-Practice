@@ -182,7 +182,9 @@
                     <td x-text="'$' + item.price"></td>
                     <td x-text="'$' + (item.price * item.quantity).toFixed(2)"></td>
                     <td>
-                      <button class="btn btn-xs btn-primary">
+                      <button
+                      @click="removeFromCart(item.id)"
+                      class="btn btn-xs btn-primary">
                         <i class="fas fa-trash-alt"></i>
                       </button>
                     </td>

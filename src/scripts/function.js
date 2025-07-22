@@ -9,7 +9,7 @@ const functionControl = () => {
 
 
     // methods
-    addCart(catId) {
+    addCart: function (catId) {
 
       const cat = this.cats.find(c => c.id === catId);
       if (!cat) return;
@@ -30,12 +30,20 @@ const functionControl = () => {
       }
     },
 
-    totalPrice() {
+    totalPrice: function() {
       let total = 0;
       for (let item of this.cart) {
         total = total + (item.price * item.quantity);
       }
       return total.toFixed(2);
+    },
+
+    removeFromCart: function(catId) {
+      const index = this.cart.findIndex(item => item.id == catId)
+
+      if(index != -1) {
+        this.cart.splice(index, 1)
+      }
     },
 
 
