@@ -37,120 +37,27 @@
           <div
             class="grid grid-cols-1 gap-3 my-2 lg:grid-cols-6 sm:grid-cols-3"
           >
+          <template x-for="cat in cats" x-bind:key="cat.id">
             <!-- cat start -->
             <div class="shadow card bg-base-100">
               <figure>
-                <img src="images/cat001.jpg" class="select-none" alt="" />
+                <img :src="'/images/' + cat.picture" class="select-none" alt="" />
               </figure>
               <div class="card-body">
-                <h5 class="card-title">老大</h5>
-                <p>$20</p>
+                <h5 class="card-title" x-text="cat.name"></h5>
+                <p x-text="'$' + cat.price"></p>
                 <div class="justify-end card-actions">
                   <button 
-                  @click="addCart(1)"
+                  @click="addCart(cat.id)"
                   class="btn btn-primary">
                     <i class="fas fa-cat"></i> 認養
                   </button>
                 </div>
               </div>
             </div>
+          </template>
             <!-- cat end -->
-
-            <!-- cat start -->
-            <div class="shadow card bg-base-100">
-              <figure>
-                <img src="images/cat002.jpg" class="select-none" alt="" />
-              </figure>
-              <div class="card-body">
-                <h5 class="card-title">貝貝</h5>
-                <p>$15</p>
-                <div class="justify-end card-actions">
-                  <button
-                  @click="addCart(2)"
-                   class="btn btn-primary">
-                    <i class="fas fa-cat"></i> 認養
-                  </button>
-                </div>
-              </div>
-            </div>
-            <!-- cat end -->
-
-            <!-- cat start -->
-            <div class="shadow card bg-base-100">
-              <figure>
-                <img src="images/cat003.jpg" class="select-none" alt="" />
-              </figure>
-              <div class="card-body">
-                <h5 class="card-title">老虎</h5>
-                <p>$10</p>
-                <div class="justify-end card-actions">
-                  <button
-                  @click="addCart(3)"
-                   class="btn btn-primary">
-                    <i class="fas fa-cat"></i> 認養
-                  </button>
-                </div>
-              </div>
-            </div>
-            <!-- cat end -->
-
-            <!-- cat start -->
-            <div class="shadow card bg-base-100">
-              <figure>
-                <img src="images/cat004.jpg" class="select-none" alt="" />
-              </figure>
-              <div class="card-body">
-                <h5 class="card-title">胖胖</h5>
-                <p>$8.5</p>
-                <div class="justify-end card-actions">
-                  <button
-                  @click="addCart(4)"
-                   class="btn btn-primary">
-                    <i class="fas fa-cat"></i> 認養
-                  </button>
-                </div>
-              </div>
-            </div>
-            <!-- cat end -->
-
-            <!-- cat start -->
-            <div class="shadow card bg-base-100">
-              <figure>
-                <img src="images/cat005.jpg" class="select-none" alt="" />
-              </figure>
-              <div class="card-body">
-                <h5 class="card-title">小花</h5>
-                <p>$9.99</p>
-                <div class="justify-end card-actions">
-                  <button
-                  @click="addCart(5)"
-                   class="btn btn-primary">
-                    <i class="fas fa-cat"></i> 認養
-                  </button>
-                </div>
-              </div>
-            </div>
-            <!-- cat end -->
-
-            <!-- cat start -->
-            <div class="shadow card bg-base-100">
-              <figure>
-                <img src="images/cat006.jpg" class="select-none" alt="" />
-              </figure>
-              <div class="card-body">
-                <h5 class="card-title">黑臉</h5>
-                <p>$12.5</p>
-                <div class="justify-end card-actions">
-                  <button
-                  @click="addCart(6)"
-                   class="btn btn-primary">
-                    <i class="fas fa-cat"></i> 認養
-                  </button>
-                </div>
-              </div>
-            </div>
-            <!-- cat end -->
-          </div>
+        </div>
 
           <section class="px-8 mt-12">
             <h2 class="text-3xl font-bold">認養清單</h2>
