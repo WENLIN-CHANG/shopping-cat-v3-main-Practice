@@ -36,31 +36,5 @@
       "name": "黑臉",
       "price": 12.5
     }
-  ],
-  "cart": [
-    {
-      "id": "2",
-      "name": "貝貝",
-      "price": 15,
-      "quantity": 1
-    },
-    {
-      "id": "3",
-      "name": "老虎",
-      "price": 10,
-      "quantity": 1
-    },
-    {
-      "id": "4",
-      "name": "胖胖",
-      "price": 8.5,
-      "quantity": 1
-    },
-    {
-      "id": "1",
-      "name": "老大",
-      "price": 20,
-      "quantity": 1
-    }
   ]
 }

@@ -21,7 +21,6 @@ const functionControl = () => {
         if (existingItem) {
           // 已存在，數量+1
           existingItem.quantity += 1;
-          // 同步到後端
           await axios.patch(`http://localhost:3002/cart/${catId}`, {
             quantity: existingItem.quantity
           });
@@ -34,7 +33,6 @@ const functionControl = () => {
             quantity: 1
           };
           this.cart.push(newItem);
-          // 同步到後端
           await axios.post('http://localhost:3002/cart', newItem);
         }
         
@@ -67,7 +65,6 @@ const functionControl = () => {
       
       try {
         this.cart.splice(index, 1);
-        // 同步到後端
         await axios.delete(`http://localhost:3002/cart/${catId}`);
         this.saveCart();
       } catch (error) {
