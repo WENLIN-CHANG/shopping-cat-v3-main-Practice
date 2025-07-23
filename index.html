@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="/src/styles/style.css" />
   </head>
   <body>
-    <div x-data="functionControl" x-init="init()" id="app">
+    <div x-data="functionControl" x-init="init()" x-cloak id="app">
       <main>
         <header>
           <nav class="shadow navbar bg-base-100">
@@ -47,12 +47,12 @@
             <button @click="fetchCats()" class="btn btn-sm">重新載入</button>
           </div>
 
-          <div x-show="!isLoading && cats.length > 0"
+          <div x-show="!isLoading && cats.length > 0" x-cloak
                class="grid grid-cols-1 gap-3 my-2 lg:grid-cols-6 sm:grid-cols-3"
           >
           <template x-for="cat in cats" x-bind:key="cat.id">
             <!-- cat start -->
-            <div class="shadow card bg-base-100">
+            <div class="shadow card bg-base-100" x-cloak>
               <figure>
                 <img :src="'/images/' + cat.picture" class="select-none" alt="" />
               </figure>
@@ -84,7 +84,7 @@
                   <th></th>
                 </tr>
               </thead>
-              <tbody>
+              <tbody x-cloak>
                 <template 
                   x-for="item in cart"
                   x-bind:key="item.id"
@@ -112,7 +112,7 @@
                   </tr>
                 </template>
               </tbody>
-              <tfoot class="text-lg bg-slate-100">
+              <tfoot class="text-lg bg-slate-100" x-cloak>
                 <tr>
                   <td colspan="2"></td>
                   <td>總價</td>

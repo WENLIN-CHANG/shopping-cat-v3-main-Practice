@@ -1,3 +1,8 @@
 @import "tailwindcss";
 @plugin "daisyui";
 
+[x-cloak] {
+  display: none !important;
+}
+
+
