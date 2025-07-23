@@ -1,6 +1,6 @@
 # Shopping Cat Practice v3
 
-![Screen Shot](./public/screenshots/new_screenshot.webp)
+![Screen Shot](./public/screenshots/screenshot.webp)
 
 ## Stacks
 
