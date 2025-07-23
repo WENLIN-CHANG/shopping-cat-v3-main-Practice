@@ -1,4 +1,3 @@
-import axios from 'axios';
 import catsData from '../data/cats.json';
 
 const functionControl = () => {
@@ -41,7 +40,7 @@ const functionControl = () => {
     },
 
     removeFromCart: function(catId) {
-      const index = this.cart.findIndex(item => item.id == catId)
+      const index = this.cart.findIndex(item => item.id === catId)
 
       if(index != -1) {
         this.cart.splice(index, 1)
