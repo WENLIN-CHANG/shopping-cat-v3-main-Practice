@@ -1,10 +1,12 @@
-import catsData from '../data/cats.json';
+import axios from 'axios';
 
 const functionControl = () => {
   return {
     // data
     cart: JSON.parse(localStorage.getItem('shoppingCart')) || [],
-    cats: catsData.cats,
+    cats: [],
+    isLoading: false,
+    errorMessage: '',
 
 
     // methods
@@ -74,6 +76,40 @@ const functionControl = () => {
       this.saveCart()
     },
 
+    // API 相關方法
+    fetchCats: async function() {
+      this.isLoading = true;
+      this.errorMessage = '';
+      
+      try {
+        const response = await axios.get('http://localhost:3002/cats');
+        this.cats = response.data;
+      } catch (error) {
+        this.errorMessage = '無法載入貓咪資料，請檢查網路連線';
+        console.error('API 呼叫失敗:', error);
+      } finally {
+        this.isLoading = false;
+      }
+    },
+
+    loadCart: async function() {
+      try {
+        const response = await axios.get('http://localhost:3002/cart');
+        // 如果 API 有資料，使用 API 資料，否則保持 localStorage
+        if (response.data && response.data.length > 0) {
+          this.cart = response.data;
+          this.saveCart(); // 同步到 localStorage
+        }
+      } catch (error) {
+        console.error('API 載入購物車失敗，使用本地資料:', error);
+      }
+    },
+
+    // 初始化方法
+    init: function() {
+      this.fetchCats();
+      this.loadCart();
+    }
 
     
   }

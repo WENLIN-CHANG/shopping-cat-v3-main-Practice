@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="/src/styles/style.css" />
   </head>
   <body>
-    <div x-data="functionControl" id="app">
+    <div x-data="functionControl" x-init="init()" id="app">
       <main>
         <header>
           <nav class="shadow navbar bg-base-100">
@@ -34,8 +34,21 @@
 
         <section class="container px-6 py-3 mx-auto">
           <p class="px-6 py-2 bg-yellow-400 rounded-full">請以認養取代購買！</p>
-          <div
-            class="grid grid-cols-1 gap-3 my-2 lg:grid-cols-6 sm:grid-cols-3"
+          
+          <!-- 載入狀態顯示 -->
+          <div x-show="isLoading" class="text-center py-8">
+            <span class="loading loading-spinner loading-lg"></span>
+            <p class="mt-2">載入貓咪資料中...</p>
+          </div>
+
+          <!-- 錯誤訊息顯示 -->
+          <div x-show="errorMessage" class="alert alert-error my-4">
+            <span x-text="errorMessage"></span>
+            <button @click="fetchCats()" class="btn btn-sm">重新載入</button>
+          </div>
+
+          <div x-show="!isLoading && cats.length > 0"
+               class="grid grid-cols-1 gap-3 my-2 lg:grid-cols-6 sm:grid-cols-3"
           >
           <template x-for="cat in cats" x-bind:key="cat.id">
             <!-- cat start -->
