@@ -73,7 +73,17 @@
         </div>
 
           <section class="px-8 mt-12">
-            <h2 class="text-3xl font-bold">認養清單</h2>
+            <h2 class="text-3xl font-bold flex items-center gap-2">
+              認養清單
+              <span class="relative">
+                <i class="fa-solid fa-cart-shopping"></i>
+                <span 
+                  x-show="cart.length > 0"
+                  x-text="cart.length"
+                  class="absolute -top-2 -right-2 bg-red-500 text-white text-xs rounded-full w-5 h-5 flex items-center justify-center"
+                ></span>
+              </span>
+            </h2>
             <table class="table my-2">
               <thead>
                 <tr class="text-lg">

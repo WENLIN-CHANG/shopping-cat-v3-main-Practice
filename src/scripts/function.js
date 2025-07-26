@@ -75,6 +75,9 @@ const functionControl = () => {
     },
 
     clearCart: async function() {
+      // 檢查購物車是否為空，如果為空則不執行任何操作
+      if (this.cart.length === 0) return;
+      
       if (!confirm('確定要清空所有認養清單嗎？')) return;
       
       const backupCart = [...this.cart]; // 備份購物車
